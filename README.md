@@ -123,7 +123,7 @@ Y = B0 + B1X1 + B2X2 + B3X3 + B4X4 + B5X5 + e
   - J에서 예측한대로 두 거래년월 데이터가 높은 공선성을 띔을 알 수 있다. 하지만, 시간에 따른 상관이 있다는 가정하에 시계열모델을 적용하였으므로 두 변수가 높은 공선성을 띄는 것은 너무나 당연할 지도 모른다.
   - 시계열데이터에 대한 처리는 해당 과목에서 자세히 다루지 않았으므로 이정도로 분석하고 넘어가도록 하겠다. (추후 시계열분석 과목을 들은 후 다시 생각해보도록 하겠습니다.)
 
-## 4.	결과 요약 및 한계점
+## 4. 결과 요약 및 한계점
 
 - 결론: 서울 화양동 아파트의 실거래가는 면적, 설립일자, 거래 년 월, 층에 따라 유의미하게 결정될 수 있음을 확인할 수 있었다. 위에서 언급한 모델에 따라 적합된 회귀 방정식은 다음과 같다.
     
@@ -131,3 +131,28 @@ Y = B0 + B1X1 + B2X2 + B3X3 + B4X4 + B5X5 + e
 - 따라서 실거래가는 면적이 증가할수록 증가하고, 설립일자가 최근일수록 감소하며, 거래일자가 최근일수록 증가하고, 층수가 높을수록 증가하는 경향이 있다.
 
 - 나의 분석의 한계점: 시계열 문제를 제대로 해결하지 못하여 자기상관성 문제를 해결하지 못한 점이 있다. 나의 문제에서는 아파트 설립일자와(year_of_completion), 거래 년 월(transaction_year_month) 라는 두개의 시계열 데이터가 있었다. 하지만 교재에서 언급했듯이 전년도 예측변수를 추가하여 모델을 구축하고 문제를 해결해 보려고 하였으나, 오히려 (너무나 당연하게도) 전년도와 올해의 예측변수들끼리 다중공성선을 보이는 문제가 나타났다. 그 후 인터넷을 참고하여 시계열 데이터의 문제를 해결하기 위해 여러 모델을 적용시켜 봤음에도 이렇다한 정답은 찾지 못하였고 결국 원래 모델을 적합 시키기로 하였다.
+
+## 5. 첨부
+### 1. 
+![image](https://user-images.githubusercontent.com/79080825/210832592-8a86356c-e4fd-4f9d-9185-10bf222bb8eb.png)
+### 2. Plot(data)
+![image](https://user-images.githubusercontent.com/79080825/210832648-3a883611-467f-4742-b93a-d83db3b59910.png)
+
+
+### 3. 잔차 플롯 (데이터별)
+![image](https://user-images.githubusercontent.com/79080825/210832671-aac24c12-9fa3-4e79-93ed-2005bb096f33.png)
+![image](https://user-images.githubusercontent.com/79080825/210832712-1d5bc8b8-ba31-43f5-bb90-9b4d561a5064.png)
+![image](https://user-images.githubusercontent.com/79080825/210832730-964e254f-1aa0-4d53-a08f-921344dbf245.png)
+![image](https://user-images.githubusercontent.com/79080825/210832745-f939ebac-c41e-462b-bd1f-b60b7350cae5.png)
+![image](https://user-images.githubusercontent.com/79080825/210832769-1564a04d-fd58-4c7c-b21b-2033dd4ec168.png)
+![image](https://user-images.githubusercontent.com/79080825/210832780-de9bd47a-6957-47dd-aff8-2f0f08b1c1a7.png)
+
+
+
+### 4. Durbin-watson 통계량 d의 분포 
+사용한 데이터는 총 371개이지만 300대의 통계량표는 구하지 못하였습니다.
+200에서의 DL값이 이미 제 더빈왓슨 d의 값보다 크고, n이 증가할수록 DL값이 커지는 경향을 볼 때 H0를 기각하기에 충분한 근거로 사용할 수 있는 자료라 판단되어 사용하였습니다. 
+![image](https://user-images.githubusercontent.com/79080825/210832840-de4244be-6e02-4e4d-b763-04c728174db9.png)
+
+
+
